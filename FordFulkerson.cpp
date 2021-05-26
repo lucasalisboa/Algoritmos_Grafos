@@ -4,7 +4,7 @@
 
 const int INF = 1000000000;  
 int n;               // número de nós
-int m; 
+int m;               // número de arestas
 
 using namespace std;
 
@@ -36,6 +36,8 @@ int ford_fulkerson(vector<vector<int>>& grafo, int s, int t) {
     vector<int> parent(grafo.size(), -1);
     vector<vector<int>> residualgrafo = grafo;
     int min_cap = 0, fluxo_maximo = 0;
+
+    //Calcula Fluxo Máximo
     while (min_cap = bfs(s, t, parent, residualgrafo)) {
         fluxo_maximo += min_cap;
         int u = t;
@@ -49,9 +51,8 @@ int ford_fulkerson(vector<vector<int>>& grafo, int s, int t) {
     return fluxo_maximo;
 }
 
-void adicionar_aresta(vector<vector<int>> &grafo, int v1, int v2, int peso){    //aresta com peso
+void adicionar_aresta(vector<vector<int>> &grafo, int v1, int v2, int peso){    
 	grafo[v1][v2] = peso;
-	//grafo[v2].push_back(make_pair(v1,peso));
 }
 
 int main(int argc, char *argv[]){
@@ -60,7 +61,7 @@ int main(int argc, char *argv[]){
 	file = fopen(argv[1], "r");
 
 	if (file == NULL){
-   		printf("FILE NOT FOUND\n");
+   		printf("Arquivo nao Encontrado\n");
    		return 0;
 	}
 

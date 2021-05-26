@@ -24,36 +24,32 @@ void adicionar_aresta(int v1, int v2, int peso){
 	grafo[v1].push_back({v2,peso});
 }
  
-void bellmanFord(int s){              //algoritmo de BellmanFord
+void dijkstra(int s){              //algoritmo de Dijkstra
 	inf(); 
 	dis[s] = 0;
-	
-	// Calcula menor caminho
-	for (int i = 0; i < n - 1; i ++){
-    for (int u = 0; u < n; u ++){
-      for (auto &v: grafo[u]){
-        if (dis[u] + v.second < dis[v.first]){
-          dis[v.first] = dis[u] + v.second; 
-        }
-      }
-    }
-  }
-
-  // Verifica se há ciclo negativo
-  for (int u = 0; u < n; u ++){
-    for (auto &v: grafo[u]){
-      if (dis[u] + v.second < dis[v.first]){
-         printf("Tem ciclo negativo\n");
-		 return;
-      }
-    }
-}
-	printf("Algoritmo de BellmanFord para o vertice %d\n",s);
+	priority_queue <pair<int,int>, vector<pair<int,int>>, greater<pair<int,int>> > pq;
+	pq.push({0, s});
+ 
+	//Calcula o menor Caminho
+	while(!pq.empty()){
+		auto f = pq.top();
+		pq.pop();
+		if(dis[f.second] < f.first) continue;    
+		for(auto e : grafo[f.second]){               
+			if(f.first + e.second < dis[e.first]){   
+				dis[e.first] = f.first + e.second;   
+				pq.push({dis[e.first], e.first});    
+			}
+		}
+	}
+	printf("Algoritmo de Dijkistra para o vertice %d\n",s);
 	for (int i=0; i<n; i++)
 	{
 		printf("%d: %d\n",i,dis[i]);
 	}
+	
 }
+
 
 int main(int argc, char *argv[]){
 	FILE *file;
@@ -76,7 +72,7 @@ int main(int argc, char *argv[]){
 		adicionar_aresta(v1,v2,peso);
 	}
 	int s = 0;
-	bellmanFord(s);
+	dijkstra(s);
 	fclose(file);
 
 	return 0;

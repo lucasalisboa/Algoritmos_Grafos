@@ -14,7 +14,7 @@ Lucas A. Lisboa e José Rubens da Silva Brito
 1. Compile a classe do algoritmo desejado. Para isto, utilize o comando:
 
 
-  ```g++ nome_da_classe.cpp -o nome_do_executavel```
+  ```make nome_do_executavel```
   
   
 2. Execute o programa, passando como parâmetro o nome do arquivo de entrada. Para isto, utilize o comando:

@@ -14,7 +14,10 @@ Lucas A. Lisboa e José Rubens da Silva Brito
 1. Compile a classe do algoritmo desejado. Para isto, utilize o comando:
 
 
-  ```make nome_do_executavel```
+  ```make dijkistra```
+  ```make bellmanFord```
+  ```make fordFulkerson```
+  ```make kruskal```
   
   
 2. Execute o programa, passando como parâmetro o nome do arquivo de entrada. Para isto, utilize o comando:

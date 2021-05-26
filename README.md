@@ -14,9 +14,12 @@ Lucas A. Lisboa e José Rubens da Silva Brito
 1. Compile a classe do algoritmo desejado. Para isto, utilize o comando:
 
 
-  ```make dijkistra```
+  ```make dijkstra```
+  
   ```make bellmanFord```
+  
   ```make fordFulkerson```
+  
   ```make kruskal```
   
   

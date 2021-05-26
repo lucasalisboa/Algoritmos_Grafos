@@ -53,7 +53,7 @@ void dijkstra(int s){              //algoritmo de dijkstra
 
 int main(int argc, char *argv[]){
 	FILE *file;
-	file = fopen("input_dijkstra.txt", "r");
+	file = fopen("input.txt", "r");
 
 	if (file == NULL){
    		printf("FILE NOT FOUND\n");

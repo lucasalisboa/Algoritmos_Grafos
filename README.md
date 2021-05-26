@@ -5,7 +5,7 @@ Repositório para algoritmos destinados à disciplina Teoria dos Grafos ministra
 Lucas A. Lisboa e José Rubens da Silva Brito
 
 ## Algoritmos Implementados
-. Dijkistra;
-. Bellman-Ford;
-. Ford-Fulkerson;
-. Kruskal.
+* Dijkistra;
+* Bellman-Ford;
+* Ford-Fulkerson;
+* Kruskal.

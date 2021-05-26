@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <queue>
-#include <bits/stdc++.h>
+#include <stdio.h>
 
 using namespace std;
 
@@ -22,9 +22,10 @@ void inf(){                          //infinitar as distâncias
  
 void adicionar_aresta(int v1, int v2, int peso){    //aresta com peso
 	grafo[v1].push_back({v2,peso});
+	//grafo[v2].push_back(make_pair(v1,peso));
 }
  
-void dijkstra(int s){               //algoritmo de dijkstra
+void dijkstra(int s){              //algoritmo de dijkstra
 	inf(); 
 	dis[s] = 0;
 	priority_queue <pair<int,int>, vector<pair<int,int>>, greater<pair<int,int>> > pq;
@@ -41,50 +42,38 @@ void dijkstra(int s){               //algoritmo de dijkstra
 			}
 		}
 	}
-	printf("Algoritmo de Dijkistra para o vertice %d",s);
+	printf("Algoritmo de Dijkistra para o vertice %d\n",s);
 	for (int i=0; i<n; i++)
 	{
-		printf("%d: %d",i,dis[i]);
+		printf("%d: %d\n",i,dis[i]);
 	}
 	
 }
 
-bool checkFileExistence(string filename) {
-    ifstream f(filename);
-    return f.is_open();
-}
-
-bool getFile(int argc, char *argv[], ifstream& file) {   
-    
-    if (argc <= 1) {
-        cout << "Argumentos Incorretos" << endl;
-        return false;
-    } else if (!checkFileExistence(argv[1])) {
-        cout << "Arquivo " << argv[1] << " Nao Encontrado" << endl;
-        return false;
-    }
-
-    file.open(argv[1]);
-    return true;
-}
-
 
 int main(int argc, char *argv[]){
-	ifstream file;
-	if(!getFile(argc, argv, file)) {
-        exit(0);
-    }
-	file >> n;
-	file >> m;
+	FILE *file;
+	file = fopen("input_dijkstra.txt", "r");
+
+	if (file == NULL){
+   		printf("FILE NOT FOUND\n");
+   		return 0;
+	}
+
+	fscanf(file,"%d %d\n",&n,&m);
+	vector<pair<int, int>> iniciar;
+	for(int i = 0; i < n; i++){
+		grafo.push_back(iniciar);
+	}
+
 	int v1,v2,peso;
 	for(int i = 0; i < m; i++){
-		file >> v1;
-		file >> v2;
-		file >> peso;
+		fscanf(file,"%d %d %d\n",&v1,&v2,&peso);
 		adicionar_aresta(v1,v2,peso);
 	}
 	int s = 0;
 	dijkstra(s);
-	file.close();
+	fclose(file);
+
 	return 0;
 }

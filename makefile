@@ -1,7 +1,7 @@
-BELLMAN_FORD = "bellmanFord.cpp"
-KRUSKAL = "kruskal.cpp"
-DIJKSTRA = "dijkstra.cpp"
-PRIM = "prim.cpp"
+BELLMAN_FORD = "BellmanFord.cpp"
+KRUSKAL = "Kruskal.cpp"
+DIJKSTRA = "Dijkstra.cpp"
+Ford_Fulkerson = "FordFulkerson.cpp"
 
 bellmanFord:
 	g++ 	$(BELLMAN_FORD)	 -o		bellmanFord
@@ -12,6 +12,6 @@ kruskal:
 dijkstra:
 	g++ 	$(DIJKSTRA)	 -o		dijkstra
 
-prim:
-	g++ 	$(PRIM)	 -o		prim
+FordFulkerson:
+	g++ 	$(Ford_Fulkerson)	 -o		fordFulkerson
 

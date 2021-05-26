@@ -77,7 +77,7 @@ int main(int argc, char *argv[]){
 	int s = 0;
     int t = n-1;
     printf("Algoritmo de FordFulkerson para o vertice %d e %d\n",s,t);
-	printf("Fluxo Maximo: %d", ford_fulkerson(grafo, s,t));
+	printf("Fluxo Maximo: %d\n", ford_fulkerson(grafo, s,t));
 	fclose(file);
 
 	return 0;

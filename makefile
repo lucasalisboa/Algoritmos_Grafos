@@ -12,6 +12,6 @@ kruskal:
 dijkstra:
 	g++ 	$(DIJKSTRA)	 -o		dijkstra
 
-FordFulkerson:
+fordFulkerson:
 	g++ 	$(Ford_Fulkerson)	 -o		fordFulkerson
 
